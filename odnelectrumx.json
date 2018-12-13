@@ -24,7 +24,7 @@
       "containers": [
          {
             "name": "obsidian-electrumx",
-            "image": "registry.hub.docker.com/bohica/docker-electrumx:latest",
+            "image": "registry.hub.docker.com/bohica/docker-obsidian-electrumx:latest",
             "env": [
                 {
                  "name": "DAEMON_URL",
