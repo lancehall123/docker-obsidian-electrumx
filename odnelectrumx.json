@@ -1,0 +1,64 @@
+{
+   "apiVersion": "apps/v1",
+   "kind": "Deployment",
+   "metadata": {
+      "name": "obsidian-electrumx",
+      "labels": {
+         "app": "obsidian-electrumx"
+      }
+   },
+   "spec": {
+      "replicas": 1,
+      "selector": {
+         "matchLabels": {
+            "app": "obsidian-electrumx"
+         }
+      },
+      "template": {
+         "metadata": {
+            "labels": {
+               "app": "obsidian-electrumx"
+            }
+         },
+   "spec": {
+      "containers": [
+         {
+            "name": "obsidian-electrumx",
+            "image": "registry.hub.docker.com/bohica/docker-electrumx:latest",
+            "env": [
+                {
+                 "name": "DAEMON_URL",
+                 "value":"http://user:password@10.39.253.38:1988"
+                }
+             ],
+            "ports": [
+               {
+                  "containerPort": 50443
+               },
+               {
+                "containerPort": 50001
+             },
+             {
+                "containerPort": 8000
+             }
+            ],
+            "volumeMounts": [
+               {
+                  "mountPath": "/data",
+                  "name": "odnelectrumx"
+               }
+            ]
+         }
+      ],
+      "volumes": [
+         {
+            "name": "odnelectrumx",
+            "persistentVolumeClaim": {
+               "claimName": "odnelectrumx"
+            }
+         }
+            ]
+   }
+      }
+   }
+}
