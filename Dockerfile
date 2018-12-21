@@ -8,9 +8,8 @@ RUN chmod a+x /usr/local/bin/* && \
     apk add --no-cache git build-base openssl bash && \
     apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ leveldb-dev && \
     pip install aiohttp pylru plyvel quark_hash && \
-    git clone https://github.com/odinblockchain/electrumx.git && \
+    git clone https://github.com/lancehall123/electrumx.git && \
     cd electrumx && \
-	git checkout obsidian-support && \
     python setup.py install && \
     apk del git build-base && \
     rm -rf /tmp/*
